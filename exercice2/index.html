@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+  <title>Exercice 2</title>
+</head>
+<body ng-app="alert">
+  <div ng-controller="alertThing">
+    <button type="button" name="alertButton" ng-click="doAlert(alert)">Ne clique pas !</button>
+  </div>
+  <script>
+  angular.module('alert', [])
+    .controller('alertThing', ['$scope', '$window', function($scope, $window) {
+      $scope.alert = 'Error404';
+      $scope.doAlert = function(alert) {
+        $window.alert(alert);
+      };
+    }]);
+</script>
+</body>
+</html>

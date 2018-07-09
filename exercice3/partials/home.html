@@ -1,0 +1,24 @@
+<form name="emailForm">
+  <label for="name">Nom: </label><input type="text" name="name" id="name" ng-model="name.model" ng-pattern="name.regex" required/>
+  <br/>
+  <label for="email">Email: </label>
+  <input type="email" name="email" id="email" ng-model="email.model" ng-pattern="email.regex" required/>
+  <br/>
+  <label for="subject">Sujet: </label>
+  <input type="text" name="subject" id="subject" ng-model="subject.model" ng-pattern="subject.regex" required/>
+  <br/>
+  <label for="superText">Texte: </label>
+  <textarea name="superText" id="superText" rows="8" cols="100" ng-model="superText.model" ng-pattern="superText.regex" required></textarea>
+</fieldset>
+<div>
+  <span><button type="button" name="button" id="post" ng-click="buttonClick()">Envoyer</button></span>
+  <p><span class="error" ng-show="emailForm.email.$error.pattern || emailForm.email.$error.required">Ce n'est pas un mail valide.<br/></span>
+    <span class="error" ng-show="emailForm.name.$error.pattern || emailForm.name.$error.required">Nom est invalide.<br/></span>
+    <span class="error" ng-show="emailForm.subject.$error.pattern || emailForm.subject.$error.required">Ceci n'est pas un sujet.<br/></span>
+    <span class="error" ng-show="emailForm.superText.$error.pattern || emailForm.superText.$error.required">Il faut écrire quelque chose.<br/></span>
+    </p>
+  </div>
+  <div ng-repeat='subject in subjects'>
+    <a href="#!/viewmail/{{$index}}">Afficher : {{subject.subject}}</a>
+  </div>
+</form>

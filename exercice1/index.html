@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+  <title>Exercice 1</title>
+</head>
+<body>
+  <div ng-app="app">
+    <form ng-controller="formCtrl" name="myForm">
+      <label>Adresse mail:
+        <input type="email" name="input" ng-model="email.text" required>
+      </label>
+      <div>
+        <span class="error" ng-show="myForm.input.$error.required">Une adresse Mail est requise.</span>
+        </div>
+      </form>
+    </div>
+    <script>
+    var app = angular.module('app', [])
+    app.controller('formCtrl', function ($scope) {
+    });
+    </script>
+  </body>
+</html>
